@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Aline Cunico — CV</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --walnut:     #231410;
+    --walnut-mid: #3a1f14;
+    --terra:      #B5613A;
+    --terra-lt:   #C97A57;
+    --terra-glow: rgba(181,97,58,0.15);
+    --cream:      #F5EEE4;
+    --parchment:  #FAF6F0;
+    --parchment2: #F3EDE4;
+    --sage:       #6B7B6E;
+    --mist:       #D6C9B8;
+    --mist-mid:   #BFB0A0;
+    --ink:        #2C2420;
+    --dust:       #8C7B70;
+    --dust-lt:    #A89588;
+    --gold:       #C4933F;
+  }
+
+  html { font-size: 10px; scroll-behavior: smooth; }
+  body {
+    font-family: 'Jost', sans-serif;
+    background: #1a0f0a;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  /* ── PAGE WRAPPER ── */
+  .page {
+    max-width: 980px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 278px 1fr;
+    min-height: 100vh;
+    box-shadow: 0 0 100px rgba(0,0,0,0.6), 0 0 40px rgba(181,97,58,0.08);
+    position: relative;
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    background: var(--walnut);
+    padding: 54px 32px 54px 32px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Decorative texture overlay */
+  .sidebar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 10%, rgba(181,97,58,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 90%, rgba(181,97,58,0.05) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  /* Vertical gold accent line */
+  .sidebar::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(181,97,58,0.4) 20%, rgba(181,97,58,0.4) 80%, transparent);
+    pointer-events: none;
+  }
+
+  /* ── NAME BLOCK ── */
+  .name-block { margin-bottom: 30px; position: relative; z-index: 1; }
+
+  .name-block .first {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 5.2rem;
+    line-height: 0.92;
+    color: var(--cream);
+    letter-spacing: 0.015em;
+    display: block;
+  }
+  .name-block .last {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 5.2rem;
+    line-height: 0.92;
+    color: var(--terra);
+    letter-spacing: 0.015em;
+    display: block;
+  }
+  .name-block .title-line {
+    margin-top: 18px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 0.78rem;
+    color: var(--mist-mid);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+  .name-block .title-sub {
+    margin-top: 5px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 0.72rem;
+    color: var(--dust);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  /* ── SIDEBAR DIVIDER ── */
+  .s-rule {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 22px 0;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+  .s-rule::before {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: var(--terra);
+    flex-shrink: 0;
+  }
+  .s-rule::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(214,201,184,0.12);
+  }
+
+  .s-section { margin-bottom: 22px; position: relative; z-index: 1; }
+  .s-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--terra);
+    margin-bottom: 11px;
+  }
+  .s-item {
+    font-size: 1.04rem;
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.8;
+  }
+  .s-item a {
+    color: var(--mist);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(214,201,184,0.2);
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .s-item a:hover { color: var(--terra-lt); border-color: var(--terra-lt); }
+
+  /* ── SKILL TAGS ── */
+  .skill-list { display: flex; flex-direction: column; gap: 5px; }
+  .skill-tag {
+    font-size: 0.98rem;
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.55;
+    padding: 3px 0 3px 12px;
+    border-left: 1.5px solid var(--terra);
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .skill-tag:hover { border-color: var(--terra-lt); color: var(--terra-lt); }
+
+  /* ── TECH STACK ── */
+  .tech-group { margin-bottom: 10px; }
+  .tech-group-label {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--dust-lt);
+    margin-bottom: 4px;
+  }
+  .tech-items {
+    font-size: 0.98rem;
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.75;
+  }
+
+  /* ── MAIN COLUMN ── */
+  .main {
+    background: var(--parchment);
+    padding: 54px 50px 54px 50px;
+    position: relative;
+  }
+
+  /* Subtle top gradient */
+  .main::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(to right, var(--terra), var(--gold), var(--terra));
+    opacity: 0.7;
+  }
+
+  .section { margin-bottom: 36px; }
+
+  /* ── SECTION HEADING ── */
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .section-head h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 1.05rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--walnut);
+    white-space: nowrap;
+  }
+  .section-head .h-rule {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--mist), transparent);
+  }
+  .section-head .h-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--terra);
+    flex-shrink: 0;
+  }
+
+  /* ── PROFILE ── */
+  .profile-text {
+    font-size: 1.08rem;
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--ink);
+  }
+  .profile-text + .profile-text { margin-top: 10px; }
+  .profile-text strong {
+    font-weight: 500;
+    color: var(--walnut);
+  }
+
+  /* ── HIGHLIGHTS ── */
+  .highlights-grid { display: flex; flex-direction: column; gap: 8px; }
+  .hl-item {
+    display: flex;
+    gap: 14px;
+    font-size: 1.05rem;
+    font-weight: 300;
+    line-height: 1.72;
+    color: var(--ink);
+    padding: 8px 12px 8px 0;
+    border-bottom: 1px solid rgba(214,201,184,0.35);
+  }
+  .hl-item:last-child { border-bottom: none; }
+  .hl-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 8px;
+    flex-shrink: 0;
+  }
+  .hl-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--terra);
+    flex-shrink: 0;
+  }
+
+  /* ── JOB BLOCKS ── */
+  .job {
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid rgba(214,201,184,0.45);
+    position: relative;
+  }
+  .job:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 2px;
+  }
+  .job-role {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 1.32rem;
+    color: var(--walnut);
+    letter-spacing: 0.01em;
+  }
+  .job-period {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--terra);
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+    flex-shrink: 0;
+    background: rgba(181,97,58,0.07);
+    padding: 2px 8px;
+    border-radius: 2px;
+  }
+  .job-company {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--dust);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .job-intro {
+    font-size: 1.06rem;
+    font-weight: 300;
+    color: var(--ink);
+    line-height: 1.78;
+    margin-bottom: 12px;
+    font-style: italic;
+    border-left: 2px solid var(--terra);
+    padding-left: 13px;
+    color: var(--walnut-mid);
+  }
+  .job-bullets { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+  .job-bullets li {
+    font-size: 1.04rem;
+    font-weight: 300;
+    color: var(--ink);
+    line-height: 1.7;
+    padding-left: 16px;
+    position: relative;
+  }
+  .job-bullets li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--terra);
+    font-weight: 400;
+  }
+
+  /* ── PROJECTS GRID ── */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .project-item {
+    padding: 14px 16px;
+    border-left: 2.5px solid var(--terra);
+    background: linear-gradient(135deg, rgba(181,97,58,0.05) 0%, rgba(181,97,58,0.02) 100%);
+    border-radius: 0 3px 3px 0;
+    transition: background 0.2s;
+  }
+  .project-item:hover { background: rgba(181,97,58,0.08); }
+  .project-item:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .project-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.12rem;
+    font-weight: 600;
+    color: var(--walnut);
+    margin-bottom: 5px;
+    letter-spacing: 0.02em;
+  }
+  .project-desc {
+    font-size: 1.0rem;
+    font-weight: 300;
+    color: var(--ink);
+    line-height: 1.65;
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: white; }
+    .page { box-shadow: none; max-width: 100%; }
+    .main::before { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="name-block">
+      <span class="first">Aline</span>
+      <span class="last">Cunico</span>
+      <div class="title-line">Creative Director</div>
+      <div class="title-sub">Multimedia · Motion · AI Operations</div>
+    </div>
+
+    <div class="s-rule"></div>
+
+    <div class="s-section">
+      <div class="s-label">Contact</div>
+      <div class="s-item">London, United Kingdom</div>
+      <div class="s-item">07869 836 956</div>
+      <div class="s-item"><a href="mailto:alinedcunico@gmail.com">alinedcunico@gmail.com</a></div>
+      <div class="s-item" style="margin-top:9px"><a href="https://www.linkedin.com/in/alinecunico/" target="_blank">LinkedIn ↗</a></div>
+      <div class="s-item"><a href="https://www.linkedin.com/feed/update/urn:li:activity:7060334561011847168" target="_blank">Showreel ↗</a></div>
+    </div>
+
+    <div class="s-rule"></div>
+
+    <div class="s-section">
+      <div class="s-label">Core Skills</div>
+      <div class="skill-list">
+        <span class="skill-tag">Creative Direction & Visual Storytelling</span>
+        <span class="skill-tag">Motion Design & Video Production</span>
+        <span class="skill-tag">Hands-on Post-Production</span>
+        <span class="skill-tag">AI-Enabled Workflows & Automation</span>
+        <span class="skill-tag">AI Governance & Compliance</span>
+        <span class="skill-tag">Creative Operations & Pipelines</span>
+        <span class="skill-tag">Design Systems & Modular Frameworks</span>
+        <span class="skill-tag">Stakeholder & Executive Comms</span>
+        <span class="skill-tag">Accessibility & Inclusive Design</span>
+        <span class="skill-tag">Team Leadership & Mentoring</span>
+        <span class="skill-tag">Content Measurement & Performance</span>
+      </div>
+    </div>
+
+    <div class="s-rule"></div>
+
+    <div class="s-section">
+      <div class="s-label">Technology</div>
+
+      <div class="tech-group">
+        <div class="tech-group-label">Production Suite</div>
+        <div class="tech-items">Adobe CC — Premiere Pro,<br/>After Effects, Photoshop,<br/>Illustrator, InDesign<br/>Frame.io</div>
+      </div>
+
+      <div class="tech-group">
+        <div class="tech-group-label">AI & Voice</div>
+        <div class="tech-items">ElevenLabs · Claude<br/>Midjourney · Runway</div>
+      </div>
+
+      <div class="tech-group">
+        <div class="tech-group-label">Operations</div>
+        <div class="tech-items">Workflow Automation<br/>AI Governance Tooling</div>
+      </div>
+    </div>
+
+    <div class="s-rule"></div>
+
+    <div class="s-section">
+      <div class="s-label">Languages</div>
+      <div class="s-item">English — Fluent</div>
+      <div class="s-item">Portuguese — Fluent</div>
+      <div class="s-item">Spanish — Proficient</div>
+      <div class="s-item">French — Intermediate</div>
+    </div>
+
+    <div class="s-rule"></div>
+
+    <div class="s-section">
+      <div class="s-label">Education</div>
+      <div class="s-item" style="line-height:1.9; font-size:1.0rem">
+        <span style="color:var(--terra-lt); font-weight:400">MA</span> International Relations<br/>
+        <span style="color:var(--dust); font-size:0.9rem">Regent's University London</span><br/><br/>
+        <span style="color:var(--terra-lt); font-weight:400">BS</span> Advertising & Marketing<br/>
+        <span style="color:var(--dust); font-size:0.9rem">Fashion Institute of Technology</span><br/><br/>
+        <span style="color:var(--terra-lt); font-weight:400">Bootcamp</span> Data Science & AI<br/>
+        <span style="color:var(--dust); font-size:0.9rem">Le Wagon</span>
+      </div>
+    </div>
+
+    <div class="s-rule"></div>
+
+    <div class="s-section">
+      <div class="s-label">Continuing Education</div>
+      <div class="s-item" style="line-height:1.9; font-size:1.0rem">
+        Virtual Production — <span style="color:var(--dust-lt)">NFTS</span><br/>
+        3D Animation — <span style="color:var(--dust-lt)">CG Spectrum</span><br/>
+        Digital Filmmaking — <span style="color:var(--dust-lt)">NYFA</span><br/>
+        Google UX Design
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <div class="section">
+      <div class="section-head"><div class="h-dot"></div><h2>Profile</h2><div class="h-rule"></div></div>
+      <p class="profile-text">Creative and multimedia leader with <strong>15+ years of experience</strong> delivering high-impact visual, motion, and digital communications within global financial services and highly regulated environments.</p>
+      <p class="profile-text">Currently <strong>Global Creative Lead (Vice President) at Barclays</strong>, managing a multidisciplinary team while remaining actively involved in hands-on production, creative direction, and post-production delivery.</p>
+      <p class="profile-text">Specialist in <strong>AI-enabled creative workflows</strong>, scalable production systems, and creative operations, with strong expertise in governance, accessibility, and brand compliance. Proven ability to translate complex institutional, regulatory, and business objectives into clear, engaging visual communications — including financial results, IPO announcements, executive messaging, and global campaigns.</p>
+      <p class="profile-text">Experienced in balancing creative direction with operational execution, pipeline management, and stakeholder alignment across fast-paced, high-volume production environments.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-head"><div class="h-dot"></div><h2>Leadership Highlights</h2><div class="h-rule"></div></div>
+      <div class="highlights-grid">
+        <div class="hl-item">
+          <div class="hl-marker"><div class="hl-dot"></div></div>
+          <span>Leads a global creative team of <strong>11 across UK, US & India</strong> delivering ~500 multimedia assets annually across executive communications, financial results, IPO content, partnerships, and global campaigns.</span>
+        </div>
+        <div class="hl-item">
+          <div class="hl-marker"><div class="hl-dot"></div></div>
+          <span>Introduced <strong>AI-enabled production workflows</strong> integrating generative AI, automation, and voice technologies (including ElevenLabs), improving speed, scalability, and output quality.</span>
+        </div>
+        <div class="hl-item">
+          <div class="hl-marker"><div class="hl-dot"></div></div>
+          <span>Built in-house production capability replacing external agency dependency, improving delivery efficiency, consistency, and cost effectiveness.</span>
+        </div>
+        <div class="hl-item">
+          <div class="hl-marker"><div class="hl-dot"></div></div>
+          <span>Developed <strong>scalable design systems, templates, and modular frameworks</strong> enabling high-volume, cross-market content production.</span>
+        </div>
+        <div class="hl-item">
+          <div class="hl-marker"><div class="hl-dot"></div></div>
+          <span>Delivered high-profile regulated communications including <strong>IPOs, financial results announcements</strong>, executive leadership messaging, and strategic partnerships.</span>
+        </div>
+        <div class="hl-item">
+          <div class="hl-marker"><div class="hl-dot"></div></div>
+          <span>Established governance frameworks covering AI usage, brand safety, accessibility standards, and compliance in regulated financial environments.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head"><div class="h-dot"></div><h2>Experience</h2><div class="h-rule"></div></div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-role">Global Creative Lead — Vice President</span>
+          <span class="job-period">Jan 2025 – Present</span>
+        </div>
+        <div class="job-company">Barclays · London</div>
+        <p class="job-intro">Lead and manage a multidisciplinary creative team of 11 across UK, US, and India, balancing hands-on production with creative direction and delivery operations.</p>
+        <ul class="job-bullets">
+          <li>Oversee delivery of ~500 multimedia assets annually including executive communications, financial results, IPO content, partnerships, internal communications, and global campaigns.</li>
+          <li>Act as hands-on creative lead, contributing directly to editing, motion design, and post-production when required.</li>
+          <li>Define creative direction through concepts, storyboards, style frames, and motion approaches aligned to brand and business objectives.</li>
+          <li>Manage end-to-end production pipeline including intake, prioritisation, resourcing, timelines, and stakeholder alignment.</li>
+          <li>Partner with senior stakeholders to translate complex business requirements into clear, high-impact visual communications.</li>
+          <li>Lead AI-enabled transformation of creative workflows including generative AI, automation tools, and voice technologies.</li>
+          <li>Establish AI governance frameworks covering licensing, attribution, brand safety, data privacy, and compliance.</li>
+          <li>Develop scalable design systems, templates, and modular frameworks to enable efficient global production.</li>
+          <li>Ensure accessibility, brand compliance, and regulatory standards across all creative outputs.</li>
+          <li>Oversee post-production standards including editing, colour grading, sound design, captions, and platform optimisation.</li>
+          <li>Mentor and develop creative talent across AI tools, motion design, and production excellence.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-role">Creative Lead</span>
+          <span class="job-period">Aug 2022 – Dec 2024</span>
+        </div>
+        <div class="job-company">Barclays · London</div>
+        <ul class="job-bullets">
+          <li>Led video, motion graphics, and digital content production across global communication channels.</li>
+          <li>Built scalable production systems, templates, and workflows improving consistency and delivery speed.</li>
+          <li>Introduced AI-assisted tools and automation workflows to improve production efficiency and scalability.</li>
+          <li>Delivered end-to-end creative production across campaigns, leadership communications, and corporate content.</li>
+          <li>Collaborated with cross-functional teams across communications, marketing, UX, and product.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-role">Senior Creative</span>
+          <span class="job-period">Feb 2019 – Aug 2022</span>
+        </div>
+        <div class="job-company">Barclays · London</div>
+        <ul class="job-bullets">
+          <li>Produced high-impact multimedia content for global internal and external audiences.</li>
+          <li>Delivered video, motion, and digital assets across campaigns, executive messaging, and communications programmes.</li>
+          <li>Collaborated with UX, data, and engineering teams to align creative with audience insights and platform requirements.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-role">Creative Director</span>
+          <span class="job-period">Aug 2016 – Feb 2019</span>
+        </div>
+        <div class="job-company">eClerx · London</div>
+        <ul class="job-bullets">
+          <li>Led creative strategy and multimedia production for financial services and luxury sector clients.</li>
+          <li>Managed multidisciplinary teams across concurrent production pipelines.</li>
+          <li>Introduced workflow optimisation, automation approaches, and scalable content frameworks.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-role">Creative Strategist</span>
+          <span class="job-period">Apr 2016 – Aug 2016</span>
+        </div>
+        <div class="job-company">Bloomberg · London</div>
+        <ul class="job-bullets">
+          <li>Developed digital storytelling strategies and social-first campaigns focused on audience engagement and growth.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-role">Designer</span>
+          <span class="job-period">May 2015 – Apr 2016</span>
+        </div>
+        <div class="job-company">Datamaran · London</div>
+        <ul class="job-bullets">
+          <li>Created visual and digital assets supporting brand communications and marketing initiatives.</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="section">
+      <div class="section-head"><div class="h-dot"></div><h2>Selected Projects &amp; Impact</h2><div class="h-rule"></div></div>
+      <div class="projects-grid">
+        <div class="project-item">
+          <div class="project-title">AI Transformation</div>
+          <div class="project-desc">Implemented AI-enabled creative workflows improving production speed, scalability, and ideation across global teams — including AI governance frameworks covering licensing, brand safety, and compliance.</div>
+        </div>
+        <div class="project-item">
+          <div class="project-title">Executive Communications</div>
+          <div class="project-desc">Delivered high-profile multimedia content supporting IPOs, financial results, executive leadership messaging, and strategic partnerships in highly regulated environments.</div>
+        </div>
+        <div class="project-item">
+          <div class="project-title">Creative Operations</div>
+          <div class="project-desc">Built scalable production systems and modular frameworks enabling consistent high-volume global content delivery, replacing agency dependency with in-house capability.</div>
+        </div>
+        <div class="project-item">
+          <div class="project-title">Capability Development</div>
+          <div class="project-desc">Designed training programmes supporting AI adoption, motion design excellence, and modern production workflows — driving measurable uplift in team output quality and speed.</div>
+        </div>
+        <div class="project-item">
+          <div class="project-title">Governance &amp; Compliance</div>
+          <div class="project-desc">Supported delivery of regulated communications with strong adherence to brand, accessibility, and approval standards across financial services environments.</div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+</body>
+</html>
